@@ -27,6 +27,8 @@ import static org.mockito.Mockito.when;
 /**
  * Pruebas unitarias para la clase Autorizacion001BZ. Verifica los
  * casos de éxito y error al obtener autorizaciones de un usuario.
+ *
+ * @author Ramirez Urrutia Angel Abinadi
  */
 @ExtendWith(MockitoExtension.class)
 class Autorizacion001BZTest {
