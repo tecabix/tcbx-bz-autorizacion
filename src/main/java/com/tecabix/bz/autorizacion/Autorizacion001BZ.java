@@ -80,7 +80,7 @@ public class Autorizacion001BZ {
         rsb001 = rqsv001.getRsb001();
         nombre = rqsv001.getSesion().getUsuario().getNombre();
         optional = usuarioRepository.findByNombre(nombre);
-        if (!optional.isPresent()) {
+        if (optional.isEmpty()) {
             return rsb001.badRequest(NO_SE_ENCONTRO_EL_USUARIO);
         }
         final Usuario usuario = optional.get();
