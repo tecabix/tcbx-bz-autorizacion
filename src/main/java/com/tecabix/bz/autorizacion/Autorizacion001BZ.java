@@ -33,11 +33,23 @@ public class Autorizacion001BZ {
     /**
      * Mensaje cuando no se encuentra el usuario.
      */
-    String NO_SE_ENCONTRO_EL_USUARIO = "No se encontro el usuario.";
+    private static final String NO_SE_ENCONTRO_EL_USUARIO;
 
+    static {
+        NO_SE_ENCONTRO_EL_USUARIO = "No se encontro el usuario.";
+    }
 
-    public Autorizacion001BZ(UsuarioRepository repository) {
-        super();
+    /**
+     * Constructor de la clase {@code Autorizacion001BZ}.
+     *
+     * Inicializa una nueva instancia de {@code Autorizacion001BZ} con el
+     * repositorio de usuarios proporcionado. Este repositorio se utiliza para
+     * acceder a los datos relacionados con los usuarios dentro del contexto de
+     * autorización.
+     *
+     * @param repository el repositorio de usuarios.
+     */
+    public Autorizacion001BZ(final UsuarioRepository repository) {
         this.usuarioRepository = repository;
     }
 
@@ -68,7 +80,7 @@ public class Autorizacion001BZ {
         rsb001 = rqsv001.getRsb001();
         nombre = rqsv001.getSesion().getUsuario().getNombre();
         optional = usuarioRepository.findByNombre(nombre);
-        if (!optional.isPresent()) {
+        if (optional.isEmpty()) {
             return rsb001.badRequest(NO_SE_ENCONTRO_EL_USUARIO);
         }
         final Usuario usuario = optional.get();
