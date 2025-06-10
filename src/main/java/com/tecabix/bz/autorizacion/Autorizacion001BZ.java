@@ -33,11 +33,23 @@ public class Autorizacion001BZ {
     /**
      * Mensaje cuando no se encuentra el usuario.
      */
-    String NO_SE_ENCONTRO_EL_USUARIO = "No se encontro el usuario.";
+    private static final String NO_SE_ENCONTRO_EL_USUARIO;
 
+    static {
+        NO_SE_ENCONTRO_EL_USUARIO = "No se encontro el usuario.";
+    }
 
-    public Autorizacion001BZ(UsuarioRepository repository) {
-        super();
+    /**
+     * Constructor de la clase {@code Autorizacion001BZ}.
+     *
+     * Inicializa una nueva instancia de {@code Autorizacion001BZ} con el
+     * repositorio de usuarios proporcionado. Este repositorio se utiliza para
+     * acceder a los datos relacionados con los usuarios dentro del contexto de
+     * autorización.
+     *
+     * @param repository el repositorio de usuarios.
+     */
+    public Autorizacion001BZ(final UsuarioRepository repository) {
         this.usuarioRepository = repository;
     }
 
